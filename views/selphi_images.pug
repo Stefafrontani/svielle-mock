@@ -1,0 +1,24 @@
+html
+  head
+    title title
+  body
+    h1= message
+    each image in selphiImages
+      li
+        span=image.id
+        span  - 
+        span=image.date
+        h3 DNI frontal
+        h4=image.base64DNIFront
+        img(src=image.base64DNIFront, width=300)
+        h3 DNI Reverso
+        h4=image.base64DNIReverse
+        img(src=image.base64DNIReverse, width=300)
+        h3 Best image
+        h4=image.base64Facial
+        img(src=image.base64Facial, width=300)
+        h3 Best image Cropped
+        h4=image.base64FacialR
+        img(src=image.base64FacialR, width=300)
+        h3 Template Raw
+        h4=image.extendedImage

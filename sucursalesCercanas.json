@@ -1,0 +1,61 @@
+{
+  "redes": [
+    {
+      "id": "5f0609a01058010019ffb3aa",
+      "nombre": "PLAZA FRANCIA ",
+      "direccion": "Las Heras 2401  (1425) - CABA",
+      "zona": "Ciudad Autónoma de Buenos Aires",
+      "numero": 6,
+      "id_provincia": 1,
+      "codigo_postal": 1425,
+      "latitud": "-34.586",
+      "longitud": "-58.398"
+    },
+    {
+      "id": "5f0609a01058010019ffb3ad",
+      "nombre": "PLAZA SAN MARTIN",
+      "direccion": "Suipacha 1280  (1011)- CABA",
+      "zona": "Ciudad Autónoma de Buenos Aires",
+      "numero": 9,
+      "id_provincia": 1,
+      "codigo_postal": 1011,
+      "latitud": "-34.5931",
+      "longitud": "-58.3801"
+    },
+    {
+      "id": "5f0609a01058010019ffb3ae",
+      "nombre": "RECOLETA ",
+      "direccion": "Callao 1991  (1024)- CABA",
+      "zona": "Ciudad Autónoma de Buenos Aires",
+      "numero": 10,
+      "id_provincia": 1,
+      "codigo_postal": 1024,
+      "latitud": "-34.5874",
+      "longitud": "-58.3872"
+    },
+    {
+      "id": "5f0609a01058010019ffb3a6",
+      "nombre": "ALTOS DE PALERMO",
+      "direccion": "Av. Santa Fe 3164  (1425) CABA",
+      "zona": "Ciudad Autónoma de Buenos Aires",
+      "numero": 2,
+      "id_provincia": 1,
+      "codigo_postal": 1425,
+      "latitud": "-34.5894",
+      "longitud": "-58.4097"
+    },
+    {
+      "id": "5f0609a01058010019ffb3a9",
+      "nombre": "TRIBUNALES ",
+      "direccion": "Montevideo 498 (1019) - CABA",
+      "zona": "Ciudad Autónoma de Buenos Aires",
+      "numero": 5,
+      "id_provincia": 1,
+      "codigo_postal": 1015,
+      "latitud": "-34.6021",
+      "longitud": "-58.3851"
+    }
+  ],
+  "codigo": "OK",
+  "descripcion": "Se ejecutó el servicio correctamente"
+}

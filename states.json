@@ -1,0 +1,100 @@
+{
+  "states": [
+    {
+      "codigo": 1,
+      "descripcion": "CAPITAL FEDERAL"
+    },
+    {
+      "codigo": 2,
+      "descripcion": "BUENOS AIRES"
+    },
+    {
+      "codigo": 3,
+      "descripcion": "CATAMARCA"
+    },
+    {
+      "codigo": 4,
+      "descripcion": "CORDOBA"
+    },
+    {
+      "codigo": 5,
+      "descripcion": "CORRIENTES"
+    },
+    {
+      "codigo": 6,
+      "descripcion": "CHACO"
+    },
+    {
+      "codigo": 7,
+      "descripcion": "CHUBUT"
+    },
+    {
+      "codigo": 8,
+      "descripcion": "ENTRE RIOS"
+    },
+    {
+      "codigo": 9,
+      "descripcion": "FORMOSA"
+    },
+    {
+      "codigo": 10,
+      "descripcion": "JUJUY"
+    },
+    {
+      "codigo": 11,
+      "descripcion": "LA PAMPA"
+    },
+    {
+      "codigo": 12,
+      "descripcion": "LA RIOJA"
+    },
+    {
+      "codigo": 13,
+      "descripcion": "MENDOZA"
+    },
+    {
+      "codigo": 14,
+      "descripcion": "MISIONES"
+    },
+    {
+      "codigo": 15,
+      "descripcion": "NEUQUEN"
+    },
+    {
+      "codigo": 16,
+      "descripcion": "RIO NEGRO"
+    },
+    {
+      "codigo": 17,
+      "descripcion": "SALTA"
+    },
+    {
+      "codigo": 18,
+      "descripcion": "SAN JUAN"
+    },
+    {
+      "codigo": 19,
+      "descripcion": "SAN LUIS"
+    },
+    {
+      "codigo": 20,
+      "descripcion": "SANTA CRUZ"
+    },
+    {
+      "codigo": 21,
+      "descripcion": "SANTA FE"
+    },
+    {
+      "codigo": 22,
+      "descripcion": "SANTIAGO DEL ESTERO"
+    },
+    {
+      "codigo": 23,
+      "descripcion": "TUCUMAN"
+    },
+    {
+      "codigo": 40,
+      "descripcion": "TIERRA DEL FUEGO"
+    }
+  ]
+}
