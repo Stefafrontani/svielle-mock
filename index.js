@@ -313,15 +313,15 @@ app.post('/prospect/:id/aceptacion-terminos', (req, res) => {
   }, 1500)
 });
 
-app.get('/prospect/terminos-vigentes', (req, res) => {
+app.get('/prospect/:id/terminos-vigentes', (req, res) => {
   setTimeout(() => {
     res.status(200).json({  
       "id_termino_condiciones": "77c88d2e-ffab-4816-9070-979d3581c933",
       "contenido_terminos_condiciones": "<html>contenido de los anexo</html>",
       "concepto_terminos_condiciones": "TERMINOS&CONDICIONES ONB-PYM",
       "id_anexo_comisiones": "777f9509-992b-4b49-9074-9c8aa45df23b",
-      "contenido_anexo_condiciones": '<img src="https://content-us-7.content-cms.com/8ba19f21-9a97-4525-8886-f54d823a5cea/dxdam/6f/6f8c547e-3f99-4a53-8310-a679325c3ff0/Form_1.png" />',
-      "concepto_anexo_comisiones": "ANEXO&COMISIONES ONB-PYM"
+      "contenido_anexo_condiciones": '<a href="https://content-us-7.content-cms.com/8ba19f21-9a97-4525-8886-f54d823a5cea/dxdam/06/06e494ac-3cdc-4881-bed1-e15d8ea58945/ANEXO%20DE%20COMISIONES%20Y%20GASTOS%20-%20CARTERA%20COMERCIAL%20-%2030-04-20.pdf?_ga=2.168490401.1837405704.1609341928-1043366479.1606830263" target="_blank" rel="noopener noreferrer" >anexos y comisiones</a>',
+      "concepto_anexo_comisiones": "Anexos y comisiones"
   })
   }, 1500)
 });
