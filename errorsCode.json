@@ -145,6 +145,19 @@
       "canRetry" : false,
       "redirectTo": "page1",
       "isPathRedirection": true
+    },
+    {
+      "code": 400,
+      "internalErrorCode": "000000021",
+      "description": "Ya existe una solicitud en BPM iniciada para este cliente",
+      "type" : "warning",
+      "title" : "Lo sentimos. Ya tenes una solicitud en curso.",
+      "message" : "Durante las próximas 24 hs te van a estar llamando para ayudarte.",
+      "path" : "/prospect/:prospectId/formulario-unico",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     }
   ]
 }

@@ -296,12 +296,21 @@ app.get('/prospect/:id/formulario-unico', (req, res) => {
 
 
 app.post('/prospect/:id/formulario-unico', (req, res) => {
-  const { id } = req.params 
-  setTimeout(() => {
-    res.status(200).json({ 
-      id
-    })
-  }, 1500)
+  const { id } = req.params
+  const { motivo_pep } = req.body
+  if(motivo_pep !== 'solicitud existente') {
+    setTimeout(() => {
+      res.status(200).json({ 
+        id
+      })
+    }, 1500)
+  } else {
+    setTimeout(() => {
+      const {responseCode, response} = getErrorFormat(400, '000000021')
+      res.status(responseCode).json(response)
+    }, 500)
+  }
+  
 });
 
 app.post('/prospect/:id/aceptacion-terminos', (req, res) => {
