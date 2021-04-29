@@ -3,6 +3,8 @@ const axios = require("axios");
 const errorsCode = require('./errorsCode.json')
 const FileReader = require('filereader')
 
+const { NAMES } = require('./casuisticas')
+
 const getErrorByCode = (code, internalErrorCode) => {
   let errorResponse = {}
   errorsCode.errors.forEach((error) => {
@@ -34,46 +36,54 @@ const getProspectResponse = ({ nombre }, isPj) => {
   let json = {}
   let status = 200
   switch( nombre ) {
-    case 'aaa' :
-      status = 409
+    case NAMES.LEAD_CLIENTE:
+      // LEAD CLIENTE DEL BANCO
+      status = 400
+      json = getErrorFormat(status, '000000001').response
+    break
+    case 'Jorge' :
+      // DATOS INCORRECTOS
+      status = 400
       json = getErrorFormat(status, '000000004').response
     break
-    case 'bbb' :
+    case NAMES.PROSPECT_NO_ENRIQUECIDO:
+      // LEAD NO ENRIQUECIDO
       status = 400
+      json = getErrorFormat(status, '000000006').response
+    break
+    case NAMES.SOLICITUD_EXISTENTE :
+      // SOLICITUD EN ONBPYMES YA EXISTE 
+      status = 400
+      json = getErrorFormat(status, '000000012').response
+    break
+    case NAMES.ACTIVIDAD_PLD :
+      // Actividad PLD
+      status = 400
+      json = getErrorFormat(status, '000000019').response
+    break
+    case 'aaa' :
+      status = 409
       json = getErrorFormat(status, '000000004').response
     break
     case 'ccc' :
       status = 500
       json = getErrorFormat(status, '000000004').response
     break
-    case 'ddd' :
-      status = 400
-      json = getErrorFormat(status, '000000001').response
-    break
-    case 'eee' :
-      status = 400
-      json = getErrorFormat(status, '000000006').response
-    break
-    case 'fff' :
-      status = 400
-      json = getErrorFormat(status, '000000012').response
-    break
-    case 'Ronaldo' :
-      status = 400
-      json = getErrorFormat(status, '000000019').response
-    break
     case 'Stefano' :
       status = isPj ? 400 : 200
       json = isPj ? getErrorFormat(status, '000000018').response : {status: "ok", id: 2}
     break
-    case 'Santiago' :
-      json = {status: "ok", id: isPj ? 4 : 3}
+    case NAMES.ID_3_4 :
+      json = {status: "ok", id: !isPj ? 3 : 4}
     break
-    case 'Alberto' :
-      json = {status: "ok", id: isPj ? 5 : 6}
+    case NAMES.ID_5_6 :
+      json = {status: "ok", id: !isPj ? 5 : 6}
+    break
+    case NAMES.ID_7_8 :
+      json = {status: "ok", id: !isPj ? 7 : 8}
     break
     default:
-      json = {status: "ok", id: isPj ? 2 : 1}
+      json = {status: "ok", id: !isPj ? 1 : 2}
   }
   return { status, json }
 }
@@ -81,21 +91,46 @@ const getProspectResponse = ({ nombre }, isPj) => {
 const getOffer = (id, totalBilling) => {
   return {
     "tarjeta_credito": {
-      "monto": Math.random() * 10000.40
+      // "monto": Math.random() * 10000.40
+      "monto": (id == 1 || id == 2)
+        ? 180000
+        : (id == 3 || id == 4)
+          ? 1800000
+          : null
     },
     "acuerdo_cc": {
-      "monto": Math.random() * 130000.33
+      // "monto": Math.random() * 130000.33
+      "monto": (id == 1 || id == 2)
+        ? 30000
+        : (id == 3 || id == 4)
+          ? 300000
+          : null
     },
     "descuento_cheque": {
-      "monto": Math.random() * 200000
+      // "monto": Math.random() * 200000
+      "monto": (id == 1 || id == 2)
+        ? 360000
+        : (id == 3 || id == 4)
+          ? 3600000
+          : null
     },
     "prestamos_personales": {
-      "monto": Math.random() * 400000.33
+      // "monto": Math.random() * 400000.33
+      "monto": (id == 1 || id == 2)
+        ? 0
+        : (id == 3 || id == 4)
+          ? 2000000
+          : null
     },
-    "oferta_exitosa": (id < 3 && id < 5),
-    "cliente_potable": (id < 5)
+    "oferta_exitosa": (id == 1 || id == 2 || id == 3 || id == 4)
+      ? true
+      : !(id == 5 || id == 6 || id == 7 || id == 8),
+    "cliente_potable": (id == 5 || id == 6) || !(id == 7 || id == 8),
   }
 }
+
+// ofetta exitosa: false
+// cliente potable : true o false
 
 /*const converBlobBase64 = async (blob) => blobToBase64(blob, function (error, base64) {
   if (!error) {

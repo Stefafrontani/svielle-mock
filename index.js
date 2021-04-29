@@ -12,7 +12,10 @@ const fs = require('fs');
 const jsonServer = require('json-server')
 const multer = require("multer");
 const upload = multer()
-const cors = require('cors')
+const cors = require('cors');
+
+const { NAMES } = require('./casuisticas')
+
 app.use(cors())
 
 fs.writeFileSync('/tmp/db.json', JSON.stringify(db));
@@ -67,7 +70,7 @@ app.get('/sucursales', (req, res) => {
 app.get('/sucursales-cercanas', (req, res) => {
   res.status(200).json(sucursalesCercanas.redes)
 });
-0000000000
+
 app.post('/token', (req, res) => {
   const { destinatario = {}} = req.body
   const valorMedio = destinatario.valor_medio
@@ -275,22 +278,40 @@ app.get('/config/params', (req, res) => {
 
 
 app.get('/prospect/:id/formulario-unico', (req, res) => {
-  const { id } = req.params 
+  const { id } = req.params
+  const NAME = id == 1 || id == 2
+    ? NAMES.ID_1_2
+    : id == 3 || id == 4
+      ? NAMES.ID_3_4
+      : id == 5 || id == 6
+        ? NAMES.ID_5_6
+        : id == 7 || id == 8
+          ? NAMES.ID_7_8
+          : 'Stefano'
+
+  let prospect = {
+    "nombre": NAME,
+    "apellido": "Frontani",
+    "email": "frontani@gmail.com",
+    "cuit_solicitante": "20379044159",
+    "telefono": 1141695824,
+    "fecha_nacimiento": "1980-11-18",
+    "genero": "M",
+    "dni": 37904415,
+    "codigo_actividad_afip": 22,
+    "descripcion_actividad_afip": "Comerciante",
+  }
+
+  if (id == 2 || id == 4 || id == 6 || id == 8) {
+    prospect = {
+      ...prospect,
+      cuit_pj: "30379044159",
+      razon_social: "Global Logic",
+    }
+      
+  }
   setTimeout(() => {
-    res.status(200).json({
-      "nombre": "Alberto Ernesto",
-      "apellido": "Crajevich",
-      "email": "crajevich@gmail.com",
-      "telefono": 112323456,
-      "cuit_solicitante": "20379044159",
-      "cuit_pj":"20379044159",
-      "razon_social": "Global Logic",
-      "fecha_nacimiento": "1980-11-18",
-      "genero": "M",
-      "dni": 37904415,
-      "codigo_actividad_afip": 22,
-      "descripcion_actividad_afip": "Comerciante",
-  })
+    res.status(200).json(prospect)
   }, 1500)
 });
 

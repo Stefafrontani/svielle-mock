@@ -1,159 +1,259 @@
 {
   "errors": [
     {
-      "code": 409,
-      "internalErrorCode": "000000004",
-      "description": "/prospect - El cliente ya existe",
-      "type" : "warning",
-      "title" : "¡Lo sentimos! Registramos que ya sos cliente y no podrás avanzar por este canal",
-      "message" : "Te sugerimos ingreses a Online Banking con tus credenciales o te comuniques con nuestro 0810 333 4959.",
-      "path" : "/prospect",
-      "canRetry" : true
+      "code": 0,
+      "internalErrorCode": "100000001",
+      "description": "Demasiados reintentos del selphi",
+      "type": "error",
+      "title": "¡Lo sentimos! No pudimos validar tu imagen satisfactoriamente",
+      "message": "Te va a estar contactando un oficial del banco en las proximas 24Hs para asesorarte.",
+      "path": "/selphi",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
-      "code": 400,
-      "internalErrorCode": "000000004",
-      "description": "/prospect - Datos incorrectos",
-      "type" : "warning",
-      "title" : "Lo sentimos, no pudimos avanzar su solicitud en este momento",
-      "message" : "Le sugerimos en comunicarse con nuestro 0800 o acercarse a una sucursal.",
-      "path" : "/prospect",
-      "canRetry" : true
+      "code": 0,
+      "internalErrorCode": "100000002",
+      "description": "/prospect/id/oferta - No es posible otorgarle una Calificación",
+      "type": "error",
+      "title": "¡Lo sentimos! No podemos realizarte una oferta en este momento",
+      "message": "Te vamos a estar contactando para asesorarte.",
+      "path": "/prospect/id/oferta",
+      "canRetry": false,
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
-      "code": 400,
-      "internalErrorCode": "000000012",
-      "description": "/prospect - Solicitud existente",
-      "type" : "warning",
-      "title" : "Lo sentimos, registramos que tenés una solicitud en curso.",
-      "message" : "En breve un representante del banco te va a estar contactando.",
-      "path" : "/prospect",
-      "canRetry" : false,
-      "redirectTo": "page1",
-      "isPathRedirection": true
-    },
-    {
-      "code": 500,
-      "internalErrorCode": "000000004",
-      "description": "/prospect - Error desconocido",
-      "type" : "error",
-      "title" : "Lo sentimos, no pudimos avanzar su solicitud en este momento",
-      "message" : "Le sugerimos en comunicarse con nuestro 0800 o acercarse a una sucursal.",
-      "path" : "/prospect",
-      "canRetry" : true
+      "code": 0,
+      "internalErrorCode": "100000003",
+      "description": "/prospect/id/oferta - No es posible otorgarle una Calificación",
+      "type": "error",
+      "title": "¡Lo sentimos! No es posible acceder a tu cámara.",
+      "message": "Pero no te preocupes, nos contactaremos a la brevedad para poder asesorarte y continuar el proceso.",
+      "path": "/prospect/id/oferta",
+      "canRetry": false,
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
       "code": 400,
       "internalErrorCode": "000000001",
       "description": "/prospect - Lead es cliente del banco",
-      "type" : "warning",
-      "title" : "¡Lo sentimos! Registramos que ya sos cliente y no podrás avanzar por este canal",
-      "message" : "Te sugerimos ingreses a Online Banking con tus credenciales o te comuniques con nuestro 0810 333 4959.",
-      "path" : "/prospect",
-      "canRetry" : false,
-      "redirectTo": "page1",
-      "isPathRedirection": true
+      "type": "warning",
+      "title": "¡Lo sentimos! Registramos que ya sos cliente y no podrás avanzar por este canal",
+      "message": "Te sugerimos que ingreses a Online Banking con tus credenciales o te acerques a una sucursal.",
+      "path": "/prospect",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
       "code": 400,
-      "internalErrorCode": "000000006",
-      "description": "/prospect - Lead no enriquecido",
-      "type" : "warning",
-      "title" : "En este momento no podemos avanzar con la solicitud, le pedimos disculpas",
-      "message" : "Le sugerimos en comunicarse con nuestro 0800 o acercarse a una sucursal.",
-      "path" : "/prospect",
-      "canRetry" : false,
-      "redirectTo": "https://www.supervielle.com.ar/negocios/solicitar-cuenta-empresa",
-      "isPathRedirection": false
+      "internalErrorCode": "000000004",
+      "description": "/prospect - Datos incorrectos",
+      "type": "error",
+      "title": "Lo sentimos, no pudimos avanzar su solicitud en este momento",
+      "message": "Te sugerimos acercarte a una sucursal.",
+      "path": "/prospect",
+      "action": {
+        "type": "canRetry"
+      }
     },
     {
       "code": 400,
       "internalErrorCode": "000000005",
       "description": "/token/validacion - El token es inválido o está vencido / Falta algún campo o no cumple el formato",
-      "type" : "warning",
-      "title" : "Disculpanos, no pudimos verificar el código que ingresaste.",
-      "message" : "Te pedimos que lo vuelvas a ingresar.",
-      "path" : "/token/validacion",
-      "canRetry" : true
+      "type": "warning",
+      "title": "Disculpanos, no pudimos verificar el código que ingresaste.",
+      "message": "Te pedimos que lo vuelvas a ingresar.",
+      "path": "/token/validacion",
+      "action": {
+        "type": "canRetry"
+      }
     },
     {
-      "code": 500,
-      "internalErrorCode": "000000003",
-      "description": "/prospect/id/oferta - No es posible otorgarle una Calificación",
-      "type" : "warning",
-      "title" : "¡Lo sentimos! No podemos realizarte una oferta en este momento",
-      "message" : "Te vamos a estar contactando para asesorarte.",
-      "path" : "/prospect/id/oferta",
-      "canRetry" : false,
-      "redirectTo": "page1",
-      "isPathRedirection": true
-    },
-    {
-      "code": 500,
-      "internalErrorCode": "000000003",
-      "description": "/token - No es posible generarle un código para la verificación.",
-      "type" : "warning",
-      "title" : "Lo sentimos",
-      "message" : "En este momento no pudimos enviarte el código de verificación, por favor volvé a intentarlo. ¡Gracias!",
-      "path" : "/token",
-      "canRetry" : true
+      "code": 400,
+      "internalErrorCode": "000000006",
+      "description": "/prospect - Lead no enriquecido",
+      "type": "error",
+      "title": "En este momento no podemos avanzar con la solicitud, le pedimos disculpas",
+      "message": "Te sugerimos acercarte a una sucursal.",
+      "path": "/prospect",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
       "code": 400,
       "internalErrorCode": "000000007",
       "description": "/prospect/id/oferta - No es posible otorgarle una Calificación",
-      "type" : "warning",
-      "title" : "¡Lo sentimos! No podemos realizarte una oferta en este momento",
-      "message" : "Te vamos a estar contactando para asesorarte.",
-      "path" : "//prospect/id/oferta",
-      "canRetry" : false,
-      "redirectTo": "page1",
-      "isPathRedirection": true
+      "type": "error",
+      "title": "¡Lo sentimos! No podemos realizarte una oferta en este momento",
+      "message": "Te vamos a estar contactando para asesorarte.",
+      "path": "//prospect/id/oferta",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
-      "code": 500,
-      "internalErrorCode": "000000008",
-      "description": "/prospect/id/oferta - Se rechazo la aceptacion crediticia completa",
-      "type" : "danger",
-      "title" : "¡Lo sentimos! No pudimos avanzar con tu solicitud",
-      "message" : "Te sugerimos comunicarte con nuestro 0800 o acercarte a una sucursal.",
-      "path" : "/prospect/id/oferta",
-      "canRetry" : false,
-      "redirectTo": "page1",
-      "isPathRedirection": true
+      "code": 400,
+      "internalErrorCode": "000000012",
+      "description": "/prospect - Solicitud existente",
+      "type": "warning",
+      "title": "Lo sentimos, registramos que tenés una solicitud en curso.",
+      "message": "En breve un representante del banco te va a estar contactando.",
+      "path": "/prospect",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
+    },
+    {
+      "code": 400,
+      "internalErrorCode": "000000015",
+      "description": "No hemos logrado validar su identidad",
+      "type": "error",
+      "title": "¡Lo sentimos! No pudimos validar tu imagen satisfactoriamente",
+      "message": "Te va a estar contactando un oficial del banco en las proximas 24Hs para asesorarte.",
+      "path": "/prospect/{id_prospect}/verificacion-biometrica",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
+    },
+    {
+      "code": 400,
+      "internalErrorCode": "000000016",
+      "description": "No hemos logrado validar su identidad",
+      "type": "error",
+      "title": "¡Lo sentimos! No pudimos validar tu imagen satisfactoriamente",
+      "message": "Te va a estar contactando un oficial del banco en las proximas 24Hs para asesorarte.",
+      "path": "/prospect/{id_prospect}/verificacion-biometrica",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
       "code": 400,
       "internalErrorCode": "000000018",
-      "description": "/prospect/id/oferta - No es posible otorgarle una Calificación",
-      "type" : "warning",
-      "title" : "¡Lo sentimos!, pero no logramos avanzar tu solicitud",
-      "message" : "En breve un oficial especializado del banco se estará contactando para asesorarte en tu proceso de vinculación",
-      "path" : "//prospect/id/oferta",
-      "canRetry" : false,
-      "redirectTo": "page1",
-      "isPathRedirection": true
+      "description": "No se enriqueció la fecha de constitución de la pj",
+      "type": "error",
+      "title": "¡Lo sentimos! No logramos avanzar con tu solicitud.",
+      "message": "En breve un oficial especializado del banco se estará contactando para asesorarte en tu proceso de vinculación.",
+      "path": "/prospect/juridica",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
       "code": 400,
       "internalErrorCode": "000000019",
-      "description": "/prospect/id/oferta - No es posible otorgarle una Calificación",
-      "type" : "warning",
-      "title" : "Es Actividad AFIP Especial PLD",
-      "message" : "No se puede seguir flujo normal debido actividad AFIP Especial PLD",
-      "path" : "//prospect/id/oferta",
-      "canRetry" : false,
-      "redirectTo": "page1",
-      "isPathRedirection": true
+      "description": "Error PLD",
+      "type": "warning",
+      "title": "¡Lo sentimos! No logramos avanzar con tu solicitud.",
+      "message": "En breve un oficial especializado del banco se estará contactando para asesorarte en tu proceso de vinculación.",
+      "path": "/prospect/{id_prospect}/",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
     },
     {
       "code": 400,
       "internalErrorCode": "000000021",
       "description": "Ya existe una solicitud en BPM iniciada para este cliente",
-      "type" : "warning",
-      "title" : "Lo sentimos. Ya tenes una solicitud en curso.",
-      "message" : "Durante las próximas 24 hs te van a estar llamando para ayudarte.",
-      "path" : "/prospect/:prospectId/formulario-unico",
+      "type": "warning",
+      "title": "Lo sentimos. Ya tenes una solicitud en curso.",
+      "message": "Durante las próximas 24 hs te van a estar llamando para ayudarte.",
+      "path": "/prospect/:prospectId/formulario-unico",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
+    },
+    {
+      "code": 409,
+      "internalErrorCode": "000000004",
+      "description": "/prospect - El cliente ya existe",
+      "type": "error",
+      "title": "¡Lo sentimos! Registramos que ya sos cliente y no podrás avanzar por este canal",
+      "message": "Te sugerimos ingreses a Online Banking con tus credenciales o te comuniques con nuestro 0810 333 4959.",
+      "path": "/prospect",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
+    },
+    {
+      "code": 500,
+      "internalErrorCode": "000000003",
+      "description": "/token - No es posible generarle un código para la verificación.",
+      "type": "error",
+      "title": "Lo sentimos",
+      "message": "En este momento no pudimos enviarte el código de verificación, por favor volvé a intentarlo. ¡Gracias!",
+      "path": "/token",
+      "action": {
+        "type": "canRetry"
+      }
+    },
+    {
+      "code": 500,
+      "internalErrorCode": "000000003",
+      "description": "/prospect/id/oferta - No es posible otorgarle una Calificación",
+      "type": "error",
+      "title": "¡Lo sentimos! No podemos realizarte una oferta en este momento",
+      "message": "Te vamos a estar contactando para asesorarte.",
+      "path": "/prospect/id/oferta",
+      "canRetry": false,
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
+    },
+    {
+      "code": 500,
+      "internalErrorCode": "000000004",
+      "description": "/prospect - Error desconocido",
+      "type": "error",
+      "title": "Lo sentimos, no pudimos avanzar su solicitud en este momento",
+      "message": "Te sugerimos acercarte a una sucursal.",
+      "path": "/prospect",
+      "action": {
+        "type": "canRetry"
+      }
+    },
+    {
+      "code": 500,
+      "internalErrorCode": "000000008",
+      "description": "/prospect/id/oferta - Se rechazo la aceptacion crediticia completa",
+      "type": "error",
+      "title": "¡Lo sentimos! No pudimos avanzar con tu solicitud",
+      "message": "Te sugerimos acercarte a una sucursal.",
+      "path": "/prospect/id/oferta",
+      "action": {
+        "type": "urlRedirection",
+        "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
+      }
+    },
+    {
+      "code": 500,
+      "internalErrorCode": "000000017",
+      "description": "No hemos logrado validar su identidad",
+      "type": "error",
+      "title": "¡Lo sentimos! No pudimos validar tu imagen satisfactoriamente",
+      "message": "Te va a estar contactando un oficial del banco en las proximas 24Hs para asesorarte.",
+      "path": "/prospect/{id_prospect}/verificacion-biometrica",
       "action": {
         "type": "urlRedirection",
         "redirectTo": "https://www.supervielle.com.ar/negocios/emprendedores"
