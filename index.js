@@ -58,6 +58,24 @@ app.post('/prospect/juridica', (req, res) => {
   }, 300)
 });
 
+app.post('/prospect/:id/enriquecimiento-tributario', (req, res) => {
+  const prospectId = req.params && req.params.id
+  let response = { status: 'ok', condicion_tributaria: 'Responsable Inscripto', categoria_condiciotn_tributaria: 'CAT 1' };
+  let status = 201
+  if (prospectId == '9') {
+    response = { condicion_tributaria: 'Monotributista', categoria_condicion_tributaria: 'A' }
+  }
+  if (prospectId == '10') {
+    response = { condicion_tributaria: 'Monotributista', categoria_condicion_tributaria: 'D' }
+  }
+  if (prospectId == '11') {
+    response = { condicion_tributaria: null, categoria_condicion_tributaria: null }
+  }
+  setTimeout(() => {
+    res.status(status).json(response)
+  }, 300)
+});
+
 
 app.get('/sucursales', (req, res) => {
   let getSucursales = []
@@ -357,7 +375,7 @@ app.get('/prospect/:id/terminos-vigentes/:concept', (req, res) => {
     if (concept === 'COMISIONESPYMES') {
       res.status(200).json({
         "id_terminos_condiciones": "A&C-992b-4b49-9074-9c8aa45df23b",
-        "contenido_terminos_condiciones": '<p> "contenido_anexo_condiciones": <a href="https://content-us-7.content-cms.com/8ba19f21-9a97-4525-8886-f54d823a5cea/dxdam/06/06e494ac-3cdc-4881-bed1-e15d8ea58945/ANEXO%20DE%20COMISIONES%20Y%20GASTOS%20-%20CARTERA%20COMERCIAL%20-%2030-04-20.pdf?_ga=2.168490401.1837405704.1609341928-1043366479.1606830263" target="_blank" rel="noopener noreferrer">anexos y comisiones</a>, "concepto_anexo_comisiones": "Anexos y comisiones" </p>',
+        "contenido_terminos_condiciones": '<p> "contenido_anexo_condiciones": <a href="https://content-us-7.content-cms.com/8ba19f21-9a97-4525-8886-f54d823a5cea/dxdam/ca/ca4b2568-9592-4efd-8e5e-519c7a585ed0/ANEXO%20DE%20COMISIONES%20Y%20GASTOS%20-%20CARTERA%20COMERCIAL%20v.1-6-2021.pdf?_ga=2.107704322.1611411448.1624457115-874448457.1590000432" target="_blank" rel="noopener noreferrer">anexos y comisiones</a>, "concepto_anexo_comisiones": "Anexos y comisiones" </p>',
         "concepto_terminos_condiciones": "Anexos y comisiones"
       })
     }
