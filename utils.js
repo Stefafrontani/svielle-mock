@@ -4,6 +4,7 @@ const errorsCode = require('./errorsCode.json')
 const FileReader = require('filereader')
 
 const { NAMES } = require('./casuisticas')
+const { CONDICION_TRIBUTARIA } = require('./domains')
 
 const getErrorByCode = (code, internalErrorCode) => {
   let errorResponse = {}
@@ -73,6 +74,8 @@ const getProspectResponse = ({ nombre }, isPj) => {
       status = isPj ? 400 : 200
       json = isPj ? getErrorFormat(status, '000000018').response : {status: "ok", id: 2}
       break
+
+    // CALIFICACION / OFERTA CREDITICIA
     case NAMES.ID_3_4 :
       json = {status: "ok", id: !isPj ? 3 : 4}
       break
@@ -83,22 +86,33 @@ const getProspectResponse = ({ nombre }, isPj) => {
       json = {status: "ok", id: !isPj ? 7 : 8}
       break
 
+    // CONDICION TRIBUTARIA
     // CASO DE MONOTRBUTO A B C - id 9 solo PF
-    case NAMES.ID_9 :
-      json = {status: 'ok', id: 9}
+    case NAMES.CONDICION_TRIBUTARIA.MONOTRIBUTISTA :
+      json = { status: 'ok', id: 9, condicion_tributaria: CONDICION_TRIBUTARIA.MONOTRIBUTISTA }
       break
     // CASO DE MONOTRBUTO > C - id 10 solo PF
-    case NAMES.ID_10 :
-      json = {status: 'ok', id: 10}
+    case NAMES.CONDICION_TRIBUTARIA.RESPONSABLE_INSCRIPTO :
+      json = { status: 'ok', id: 10, condicion_tributaria: CONDICION_TRIBUTARIA.RESPONSABLE_INSCRIPTO }
       break
     // CASO DE CONDICION Y CATEGORIA NULL - 11 solo PF
-    case NAMES.ID_11 :
-      json = {status: 'ok', id: 11}
+    case NAMES.CONDICION_TRIBUTARIA.NULL :
+      json = { status: 'ok', id: 11, condicion_tributaria: null }
       break
     default:
-      json = {status: "ok", id: !isPj ? 1 : 2}
+      json = {
+        status: "ok",
+        id: !isPj ? 1 : 2,
+        condicion_tributaria: !isPj ? CONDICION_TRIBUTARIA.RESPONSABLE_INSCRIPTO : null
+      }
   }
-  return { status, json }
+  return {
+    status,
+    json: {
+      ...json,
+      id_persona: 1000
+    }
+  }
 }
 
 const getOffer = (id, totalBilling) => {
