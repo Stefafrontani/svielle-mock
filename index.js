@@ -58,25 +58,6 @@ app.post('/prospect/juridica', (req, res) => {
   }, 300)
 });
 
-app.post('/prospect/:id/enriquecimiento-tributario', (req, res) => {
-  const prospectId = req.params && req.params.id
-  let response = { status: 'ok', condicion_tributaria: 'Responsable Inscripto', categoria_condiciotn_tributaria: 'CAT 1' };
-  let status = 201
-  if (prospectId == '9') {
-    response = { condicion_tributaria: 'Monotributista', categoria_condicion_tributaria: 'A' }
-  }
-  if (prospectId == '10') {
-    response = { condicion_tributaria: 'Monotributista', categoria_condicion_tributaria: 'D' }
-  }
-  if (prospectId == '11') {
-    response = { condicion_tributaria: null, categoria_condicion_tributaria: null }
-  }
-  setTimeout(() => {
-    res.status(status).json(response)
-  }, 300)
-});
-
-
 app.get('/sucursales', (req, res) => {
   let getSucursales = []
   sucursales.redes.forEach(({id, nombre, numero, direccion, zona, latitud, longitud}) => {
