@@ -99,6 +99,10 @@ const getProspectResponse = ({ nombre }, isPj) => {
     case NAMES.CONDICION_TRIBUTARIA.NULL :
       json = { status: 'ok', id: 11, condicion_tributaria: null }
       break
+    case NAMES.CONDICION_TRIBUTARIA.EXIT_FLOW :
+      status = 400
+      json = getErrorFormat(status, '000000024').response
+      break
     default:
       json = {
         status: "ok",
