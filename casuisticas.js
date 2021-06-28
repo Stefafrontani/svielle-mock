@@ -17,7 +17,9 @@ const NAMES = {
     // CASO RESPONSABLE INSCRIPTO
     RESPONABLE_INSCRIPTO: 'Esteve',
     // CASO CONDICION NULL
-    NULL: 'Steve'
+    NULL: 'Steve',
+    // CASO SALIDA DEL FLUJO - ERROR DE BFF
+    EXIT_FLOW: 'Steven'
   }
 }
 

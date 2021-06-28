@@ -183,6 +183,22 @@
       }
     },
     {
+      "code": 400,
+      "internalErrorCode": "000000024",
+      "pagePath": "validacion",
+      "path": "/prospect",
+      "description": "No pertenece al ONB-PYMES, tiene que ser redirigido a OBI por ser monotributo A|B|C",
+      "type": "error",
+      "title": "¡Ups! Parece que no podés seguir por este canal.",
+      "message": "Vamos a redirigirte a la sección correspondiente.",
+      "canRetry": false,
+      "action": {
+        "type": "urlRedirection",
+        "buttonText": "¡Entendido!",
+        "redirectTo": "https://hacetecliente.supervielle.com.ar#/autogestion/OBE"
+      }
+    },
+    {
       "code": 409,
       "internalErrorCode": "000000004",
       "description": "/prospect - El cliente ya existe",
