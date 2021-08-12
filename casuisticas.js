@@ -4,6 +4,7 @@ const NAMES = {
   PROSPECT_NO_ENRIQUECIDO: 'Bruno',
   SOLICITUD_EXISTENTE: 'Alejandro',
   ACTIVIDAD_PLD: 'Diego',
+  WITH_LEASING: 'Joaquin',
 
   // CASOS CALI
   ID_1_2: 'Stephano',            // CALI EXITOSA - POR CALI EXPRESS (DEFAULT)

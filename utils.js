@@ -17,10 +17,10 @@ const getErrorByCode = (code, internalErrorCode) => {
 }
 
 const getErrorFormat = (code, internalErrorCode) => {
-  const errorByCode= getErrorByCode(code, internalErrorCode)
+  const errorByCode = getErrorByCode(code, internalErrorCode)
   return {
-    responseCode : errorByCode.code, 
-    response : {
+    responseCode: errorByCode.code,
+    response: {
       codigo: errorByCode.code,
       errores: [
         {
@@ -36,13 +36,13 @@ const getErrorFormat = (code, internalErrorCode) => {
 const getProspectResponse = ({ nombre }, isPj) => {
   let json = {}
   let status = 200
-  switch( nombre ) {
+  switch (nombre) {
     case NAMES.LEAD_CLIENTE:
       // LEAD CLIENTE DEL BANCO
       status = 400
       json = getErrorFormat(status, '000000001').response
       break
-    case 'Jorge' :
+    case 'Jorge':
       // DATOS INCORRECTOS
       status = 400
       json = getErrorFormat(status, '000000004').response
@@ -52,56 +52,64 @@ const getProspectResponse = ({ nombre }, isPj) => {
       status = 400
       json = getErrorFormat(status, '000000006').response
       break
-    case NAMES.SOLICITUD_EXISTENTE :
+    case NAMES.SOLICITUD_EXISTENTE:
       // SOLICITUD EN ONBPYMES YA EXISTE 
       status = 400
       json = getErrorFormat(status, '000000012').response
       break
-    case NAMES.ACTIVIDAD_PLD :
+    case NAMES.ACTIVIDAD_PLD:
       // Actividad PLD
       status = 400
       json = getErrorFormat(status, '000000019').response
       break
-    case 'aaa' :
+    case 'aaa':
       status = 409
       json = getErrorFormat(status, '000000004').response
       break
-    case 'ccc' :
+    case 'ccc':
       status = 500
       json = getErrorFormat(status, '000000004').response
       break
-    case 'Stefano' :
+    case 'Stefano':
       status = isPj ? 400 : 200
-      json = isPj ? getErrorFormat(status, '000000018').response : {status: "ok", id: 2}
+      json = isPj ? getErrorFormat(status, '000000018').response : { status: "ok", id: 2 }
       break
 
     // CALIFICACION / OFERTA CREDITICIA
-    case NAMES.ID_3_4 :
-      json = {status: "ok", id: !isPj ? 3 : 4}
+    case NAMES.ID_3_4:
+      json = { status: "ok", id: !isPj ? 3 : 4 }
       break
-    case NAMES.ID_5_6 :
-      json = {status: "ok", id: !isPj ? 5 : 6}
+    case NAMES.ID_5_6:
+      json = { status: "ok", id: !isPj ? 5 : 6 }
       break
-    case NAMES.ID_7_8 :
-      json = {status: "ok", id: !isPj ? 7 : 8}
+    case NAMES.ID_7_8:
+      json = { status: "ok", id: !isPj ? 7 : 8 }
       break
 
     // CONDICION TRIBUTARIA
     // CASO DE MONOTRBUTO A B C - id 9 solo PF
-    case NAMES.CONDICION_TRIBUTARIA.MONOTRIBUTISTA :
+    case NAMES.CONDICION_TRIBUTARIA.MONOTRIBUTISTA:
       json = { status: 'ok', id: 9, condicion_tributaria: CONDICION_TRIBUTARIA.MONOTRIBUTISTA }
       break
     // CASO DE MONOTRBUTO > C - id 10 solo PF
-    case NAMES.CONDICION_TRIBUTARIA.RESPONSABLE_INSCRIPTO :
+    case NAMES.CONDICION_TRIBUTARIA.RESPONSABLE_INSCRIPTO:
       json = { status: 'ok', id: 10, condicion_tributaria: CONDICION_TRIBUTARIA.RESPONSABLE_INSCRIPTO }
       break
     // CASO DE CONDICION Y CATEGORIA NULL - 11 solo PF
-    case NAMES.CONDICION_TRIBUTARIA.NULL :
+    case NAMES.CONDICION_TRIBUTARIA.NULL:
       json = { status: 'ok', id: 11, condicion_tributaria: null }
       break
-    case NAMES.CONDICION_TRIBUTARIA.EXIT_FLOW :
+    case NAMES.CONDICION_TRIBUTARIA.EXIT_FLOW:
       status = 400
       json = getErrorFormat(status, '000000024').response
+      break
+    case NAMES.WITH_LEASING:
+      json = {
+        status: 'ok',
+        id: 3456,
+        id_persona: 03456,
+        condicion_tributaria: null
+      }
       break
     default:
       json = {
@@ -183,4 +191,4 @@ const setSelphiImage = async (dataToSend) => {
 }
 
 
-module.exports = {getErrorByCode, getErrorFormat, getProspectResponse, getOffer, converBlobBase64, setSelphiImage}
+module.exports = { getErrorByCode, getErrorFormat, getProspectResponse, getOffer, converBlobBase64, setSelphiImage }

@@ -199,6 +199,16 @@
       }
     },
     {
+      "code": 404,
+      "internalErrorCode": "000000009",
+      "type": "TECNICO",
+      "status": "Not Found",
+      "description": "No se pudo encontrar la informacion requerida",
+      "message": "No fue posible generar la oferta de leasing para Avancargo",
+      "title": "Recurso no encontrado",
+      "path": "/v1.0/leasing/{id}/oferta/{numeroTributario}"
+    },
+    {
       "code": 409,
       "internalErrorCode": "000000004",
       "description": "/prospect - El cliente ya existe",
